@@ -1,6 +1,6 @@
 // !!! check this code, repeat is not working!
 
-
+// ! TA mail: ranabadran@aucegypt.edu
 class comm_component;
 
 bit [31:0] data;
