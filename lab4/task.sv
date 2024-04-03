@@ -1,7 +1,7 @@
 class comm_component;
     bit [31:0] data;
     bit [31:0] address;
-
+    
     // Constructor to initialize data and address
     function new();
         data = 0;
