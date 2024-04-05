@@ -17,13 +17,13 @@ module tb;
   intf #(ADDR_WIDTH, DATA_WIDTH, fifo_size) dut_intf(clk);
   FIFO #(ADDR_WIDTH, DATA_WIDTH, fifo_size) dut (
     .clk(clk),
-    .reset(reset),
-    .Wr_enable(Wr_enable),
-    .data_in(data_in),
-    .Read_enable(Read_enable),
-    .full(full),
-    .empty(empty),
-    .data_out(data_out)
+    .reset(dut_intf.reset),
+    .Wr_enable(dut_intf.Wr_enable),
+    .data_in(dut_intf.data_in),
+    .Read_enable(dut_intf.Read_enable),
+    .full(dut_intf.full),
+    .empty(dut_intf.empty),
+    .data_out(dut_intf.data_out)
   );
 
   // Coverage
