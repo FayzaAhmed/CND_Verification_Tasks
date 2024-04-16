@@ -10,7 +10,6 @@ module TB (intf.tb tb);
     }
   endgroup
   
-
   covergroup cg_empty ;
     option.per_instance = 1;
     empty_cp : coverpoint tb.cb.empty {
@@ -52,8 +51,5 @@ initial begin
 		
 	end
 end
-
-
-
 
 endmodule

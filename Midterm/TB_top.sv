@@ -3,13 +3,10 @@
 //`include "interface.sv"
 
 
-
 module TB_top ();
 	bit clk;
 	intf Intf(clk);
-
     TB tb_dut(Intf);
-
 
 	FIFO Dut(
 	.clk(clk),
@@ -40,15 +37,11 @@ module TB_top ();
 	    disable iff (Intf.reset)
 	    (Intf.Read_enable && !Intf.empty) |=> (Dut.read_ptr == $past(Dut.read_ptr) + 5'b1);
 	  endproperty
-
 	  p_read_ptr_increment:assert property (read_ptr_increment) else $error("Write pointer increment assertion failed");
 
 	initial begin
-		
 		#10000;
-			$finish;
-		
+		$finish;
 	end
-
 
 endmodule

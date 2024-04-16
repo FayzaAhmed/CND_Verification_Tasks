@@ -19,11 +19,8 @@ constraint fourth {if(first_8_bits > 150)
 }
 }
 
-
 constraint rd_enable{Read_enable dist {0 :=5 , 1 := 5};}
 constraint wr_enable{Wr_enable dist {0 :=2 , 1 := 3};}
 constraint data {data_in == {fourth_8_bits,third_8_bits,second_8_bits,first_8_bits};}
-
-
 
 endclass
