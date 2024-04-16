@@ -1,0 +1,36 @@
+<session version="1.1" release="V-2023.12" timestp="2024-04-16 13:28:15 GMT">
+  <info>
+    <attr name="datetime" value="Tue Apr 16 15:28:32 2024
+"/>
+    <attr name="command" value="urg -dir simv.vdb"/>
+    <attr name="top_instance" value="TB_top"/>
+  </info>
+  <hvp>
+    <datadef>
+      <metdef name="Line" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Cond" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Toggle" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Group" type="percent" aggregator="average" builtin="1" />
+    </datadef>
+  </hvp>
+  <old_coverage>
+  <scope type="top" name="top">
+    <metric name="Line" value="44/44" />
+    <metric name="Cond" value="14/14" />
+    <metric name="Toggle" value="110/110" />
+    <metric name="Group" value="100%" />
+  </scope>
+  <scope type="instance" name="top">
+  </scope>
+  <scope type="group" name="top">
+    <scope type="group" name="TB_top.tb_dut::cg_empty">
+      <metric name="Group" value="100%" />
+    </scope>
+    <scope type="group" name="TB_top.tb_dut::cg_full">
+      <metric name="Group" value="100%" />
+    </scope>
+  </scope>
+  <scope type="assert" name="Statistics">
+  </scope>
+  </old_coverage>
+</session>

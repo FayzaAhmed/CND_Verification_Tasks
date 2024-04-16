@@ -3,7 +3,8 @@ rand bit [7:0] first_8_bits;
 rand bit [7:0] second_8_bits;
 rand bit [7:0] third_8_bits;
 rand bit [7:0] fourth_8_bits;
-bit [31:0] data_in;
+rand bit reset;
+rand bit [31:0] data_in;
 rand bit Wr_enable;
 rand bit Read_enable;
 
