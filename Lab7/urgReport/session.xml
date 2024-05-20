@@ -1,0 +1,41 @@
+<session version="1.1" release="V-2023.12" timestp="2024-03-30 13:34:20 GMT">
+  <info>
+    <attr name="datetime" value="Sat Mar 30 15:34:23 2024
+"/>
+    <attr name="command" value="urg -dir simv.vdb"/>
+    <attr name="top_instance" value="testbench"/>
+  </info>
+  <hvp>
+    <datadef>
+      <metdef name="Line" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Cond" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Toggle" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="FSM" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Group" type="percent" aggregator="average" builtin="1" />
+    </datadef>
+  </hvp>
+  <old_coverage>
+  <scope type="top" name="top">
+    <metric name="Line" value="87/89" />
+    <metric name="Cond" value="4/4" />
+    <metric name="Toggle" value="24/24" />
+    <metric name="FSM" value="6/7" />
+    <metric name="Group" value="100%" />
+  </scope>
+  <scope type="instance" name="top">
+  </scope>
+  <scope type="group" name="top">
+    <scope type="group" name="testbench::state_coverage">
+      <metric name="Group" value="100%" />
+    </scope>
+    <scope type="group" name="testbench::transition_coverage">
+      <metric name="Group" value="100%" />
+    </scope>
+    <scope type="group" name="testbench::output_coverage">
+      <metric name="Group" value="100%" />
+    </scope>
+  </scope>
+  <scope type="assert" name="Statistics">
+  </scope>
+  </old_coverage>
+</session>

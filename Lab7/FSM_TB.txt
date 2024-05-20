@@ -1,0 +1,93 @@
+module testbench;
+
+  // Parameters
+  parameter CLK_PERIOD = 10; // Clock period in time units
+  
+  // Inputs
+  reg in, clk, reset;
+  
+  // Outputs
+  wire [2:0] out;
+  
+  // Instantiate the FSM module
+  FSM fsm (
+    .in(in),
+    .clk(clk),
+    .reset(reset),
+    .out(out)
+  );
+  
+  // Clock generation
+  always #((CLK_PERIOD)/2) clk = ~clk;
+  
+  // Reset generation
+  initial begin
+    reset = 1;
+    #50;  // Wait for 5 clock cycles
+    reset = 0;
+  end
+  
+  // Test cases
+  initial begin
+    // Case 1: Test basic functionality
+    in = 1; // Input high
+    #100;   // Wait for a few clock cycles
+    in = 0; // Input low
+    #100;   // Wait for a few clock cycles
+    
+    // Add more test cases here to cover different scenarios
+    
+    // Terminate simulation after all test cases are executed
+    //$finish;
+  end
+  
+  // Cover groups
+  covergroup state_coverage @(posedge clk);
+    // Cover all states
+    coverpoint fsm.current_state {
+      bins S0 = {0};
+      bins S1 = {1};
+      bins S2 = {2};
+      bins S3 = {3};
+    }
+  endgroup
+  
+  covergroup transition_coverage @(posedge clk);
+    // Cover all state transitions
+    coverpoint {fsm.current_state, fsm.next_state} {
+      bins S0_S1 = {0 -> 1};
+      bins S0_S2 = {0 -> 2};
+      bins S1_S2 = {1 -> 2};
+      bins S2_S3 = {2 -> 3};
+      bins S3_S0 = {3 -> 0};
+    }
+  endgroup
+  
+  covergroup output_coverage @(posedge clk);
+    // Cover all output values
+    coverpoint out {
+      bins OUT_0 = {3'b000};
+      bins OUT_1 = {3'b001};
+      bins OUT_2 = {3'b010};
+      bins OUT_3 = {3'b011};
+    }
+  endgroup
+  
+  // Capture coverage
+  initial begin
+    // Run simulation for a sufficient time to cover all scenarios
+    #1000; // Adjust the simulation time as needed
+    $display("Total Coverage");
+    // Set auto_bin_max for covergroups
+    //state_coverage.auto_bin_max = 100;
+    //transition_coverage.auto_bin_max = 100;
+    //output_coverage.auto_bin_max = 100;
+
+    // Sample coverage to calculate bins
+    //state_coverage.sample();
+    //transition_coverage.sample();
+    //output_coverage.sample();
+    #5;
+  end
+
+endmodule
