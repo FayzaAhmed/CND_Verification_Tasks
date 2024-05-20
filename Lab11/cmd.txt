@@ -1,0 +1,5 @@
+//build
+vcs -sverilog -ntb_opts uvm-1.2 testbench.sv
+
+//run
+./simv simv.log +UVM_TESTNAME=mem_wr_rd_test
